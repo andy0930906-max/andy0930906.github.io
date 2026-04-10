@@ -1,183 +1,102 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>探索大地之扇：沖積扇地形學 - 我的地理筆記</title>
-    <style>
-        /* 基本頁面樣式 */
-        body {
-            font-family: 'Noto Sans TC', sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.8;
-            color: #333;
-            background-color: #f9f9f9;
-        }
-
-        /* 網誌容器，設定最大寬度並置中 */
-        .blog-container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        /* 封面區域樣式 */
-        .cover {
-            height: 70vh; /* 設定封面高度為視窗高度的 70% */
-            background-image: url('圖檔二.jpg');
-            background-size: cover; /* 讓圖片覆蓋整個區域 */
-            background-position: center; /* 讓圖片居中 */
-            position: relative; /* 為了讓文字在圖片上定位 */
-            color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 20px;
-        }
-
-        /* 封面上的半透明黑色疊加層，讓文字更清晰 */
-        .cover-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.5); /* 黑色半透明 */
-        }
-
-        /* 封面文字內容樣式 */
-        .cover-content {
-            position: relative;
-            z-index: 1; /* 讓文字在疊加層上方 */
-        }
-
-        .cover-title {
-            font-size: 3rem;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.7); /* 加上文字陰影以增加清晰度 */
-        }
-
-        .cover-subtitle {
-            font-size: 1.5rem;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
-        }
-
-        /* 主內容區域樣式 */
-        main {
-            padding: 40px 0;
-        }
-
-        article {
-            padding: 0 20px;
-        }
-
-        /* 網誌文章標題樣式 */
-        .post-title {
-            text-align: center;
-            font-size: 2.5rem;
-            color: #2c3e50;
-            margin-bottom: 30px;
-        }
-
-        /* 段落樣式 */
-        p {
-            margin-bottom: 25px;
-            font-size: 1.1rem;
-        }
-
-        /* 圖片區域樣式 */
-        figure {
-            margin: 40px 0;
-            text-align: center;
-        }
-
-        figure img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px; /* 加上圓角 */
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15); /* 加上陰影 */
-        }
-
-        figcaption {
-            font-style: italic;
-            color: #7f8c8d;
-            margin-top: 15px;
-            font-size: 0.95em;
-        }
-
-        /* 頁尾樣式 */
-        footer {
-            text-align: center;
-            padding: 40px 0;
-            background-color: #2c3e50;
-            color: white;
-            margin-top: 40px;
-        }
-
-        footer p {
-            margin: 0;
-            font-size: 0.9rem;
-        }
-
-        /* 響應式設計（手機端） */
-        @media (max-width: 600px) {
-            .cover-title {
-                font-size: 2.2rem;
-            }
-            .cover-subtitle {
-                font-size: 1.2rem;
-            }
-            .post-title {
-                font-size: 2rem;
-            }
-            .blog-container {
-                padding: 10px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>沖積扇電子書</title>
+<style>
+body{margin:0;font-family:"Noto Sans TC",sans-serif;background:#eaeaea;display:flex;justify-content:center;align-items:center;height:100vh;}
+.book{width:800px;height:500px;position:relative;perspective:2000px;}
+.page{width:100%;height:100%;position:absolute;background:white;border-radius:10px;box-shadow:0 10px 25px rgba(0,0,0,0.2);padding:30px;box-sizing:border-box;backface-visibility:hidden;transform-origin:left;transition:transform 0.8s;overflow:auto;}
+.page img{max-width:100%;border-radius:10px;margin-top:10px;}
+.page h2{border-left:5px solid #4CAF50;padding-left:10px;}
+.controls{position:absolute;bottom:-60px;width:100%;text-align:center;}
+button{padding:10px 20px;margin:5px;border:none;border-radius:8px;background:#4CAF50;color:white;font-size:16px;cursor:pointer;}
+button:hover{background:#388e3c;}
+</style>
 </head>
 <body>
 
-    <header class="cover">
-        <div class="cover-overlay"></div>
-        <div class="cover-content">
-            <h1 class="cover-title">大地之扇：探索沖積扇</h1>
-            <p class="cover-subtitle">了解地形發育與人地關係的重要筆記</p>
-        </div>
-    </header>
+<div class="book" id="book">
 
-    <main class="blog-container">
-        <article>
-            <h1 class="post-title">沖積扇（Alluvial Fan）地形解密</h1>
+<div class="page" style="z-index:5;" id="p0">
+<h1>一出山口就「散開」：沖積扇的地理現場直擊</h1>
+<p style="font-size:18px;color:#555;">副標：從山洪搬運到平原堆積，一本看懂沖積扇的形成與防災</p>
+<p>點擊下方按鈕開始閱讀</p>
+<img src="圖一.png">
+</div>
 
-            <p>
-                沖積扇（Alluvial Fan）是河流由山區流出至平地時，因坡度突然變緩、流速降低，所攜帶的砂石逐漸堆積而形成的扇形地形。
-            </p>
+<div class="page" style="z-index:4;" id="p1">
+<h2>一、沖積扇的形成與演育</h2>
+<p>沖積扇（alluvial fan）是山地與平原交界處最典型的堆積地形之一，其形成與演育涉及水文、地形動力與氣候條件的長期交互作用。</p>
+<p>沖積扇的形成始於山區河流攜帶大量碎屑物質（礫石、砂、粉砂）流出山口時的動能變化。在狹窄陡峻的山谷中，水流速度快、搬運能力強；當河流流出谷口進入坡度驟降的開闊平原時，流速迅速降低，搬運能力下降，沉積物逐漸堆積，形成扇狀展開的堆積體。</p>
+</div>
 
-            <figure>
-                <img src="圖檔一.jpg" alt="空中俯瞰沖積扇">
-                <figcaption>圖一：沖積扇的空中俯瞰視角，清晰展示了放射狀展開的扇面和不穩定的辮狀河道。</figcaption>
-            </figure>
+<div class="page" style="z-index:3;" id="p2">
+<h2>演育階段</h2>
+<p><b>初期堆積：</b>以粗礫為主，集中於扇頂，河道不穩定呈辮狀。</p>
+<p><b>擴展發育：</b>沖積扇向外擴展，粒徑由粗到細分選，河道頻繁改道（avulsion）。</p>
+<p><b>成熟穩定：</b>坡度趨緩，河道較固定，人類活動開始介入。</p>
+<p>此外，氣候（降雨）、構造運動與岩性也會影響其發育；台灣因地形陡峭與颱風頻繁，使沖積扇動態性強。</p>
+<img src="圖二.jpg">
+</div>
 
-            <p>
-                其頂點位於山谷出口，向外呈放射狀展開，且具有由上游粗顆粒（礫石）到下游細顆粒（砂、泥）遞減的特性；在形成過程中，河流因能量下降而分散成多條支流，常形成不穩定的辮狀河道，使扇面地形持續變動。
-            </p>
+<div class="page" style="z-index:2;" id="p3">
+<h2>二、地形特徵</h2>
+<p><b>扇頂：</b>坡度最大、礫石多、滲透性高。</p>
+<p><b>扇中：</b>坡度減緩、砂質沉積、河道易改道。</p>
+<p><b>扇端：</b>坡度最小、細粒沉積，常見地下水湧出。</p>
+<ul>
+<li>扇形展開</li>
+<li>坡度遞減</li>
+<li>顆粒分帶明顯</li>
+<li>河道不穩定</li>
+</ul>
+</div>
 
-            <p>
-                沖積扇雖地勢平坦、適合人類開發，但同時也是高災害潛勢區，容易受到土石流、洪水與河道改道等影響，特別是在豪雨或颱風期間，上游大量崩塌物會迅速堆積於扇面，對聚落安全造成威脅；在台灣，濁水溪沖積扇與花東縱谷沖積扇即為典型例子，顯示其在地形發育與人地關係上的重要性。
-            </p>
-        </article>
-    </main>
+<div class="page" style="z-index:1;" id="p4">
+<h2>三、防災與人文利用</h2>
+<p>沖積扇潛藏土石流、洪水改道與淹水風險，特別在強降雨期間。</p>
+<ul>
+<li>劃設潛勢區與限制開發</li>
+<li>設置攔砂壩與導流設施</li>
+<li>建立即時預警系統</li>
+</ul>
+<p>在人文利用方面，沖積扇適合農業與聚落發展，亦利於地下水補注與交通建設，但過度開發可能導致災害加劇。</p>
+<p>整體而言，沖積扇是資源與風險並存的地形，需在人類利用與自然平衡間取得調和。</p>
+</div>
 
-    <footer>
-        <p>&copy; 2024 我的地理探索筆記。所有權利保留。</p>
-        <p>內容來源：</p>
-    </footer>
+<div class="controls">
+<button onclick="prevPage()">上一頁</button>
+<button onclick="nextPage()">下一頁</button>
+</div>
+
+</div>
+
+<script>
+let current = 0;
+const pages = document.querySelectorAll('.page');
+
+function update(){
+  pages.forEach((p,i)=>{
+    if(i < current){
+      p.style.transform = 'rotateY(-180deg)';
+    }else{
+      p.style.transform = 'rotateY(0deg)';
+    }
+  });
+}
+
+function nextPage(){
+  if(current < pages.length) current++;
+  update();
+}
+
+function prevPage(){
+  if(current > 0) current--;
+  update();
+}
+</script>
 
 </body>
 </html>
